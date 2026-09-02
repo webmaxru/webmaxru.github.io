@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Personal Data Rights Workbench</title>
+  <desc id="desc">A green and cream demo card showing data reorganized into delete, retained, and keep groups.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#eff4ec"/>
+      <stop offset="1" stop-color="#b9f5ca"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="36" fill="url(#bg)"/>
+  <circle cx="1060" cy="80" r="190" fill="#d9ff72" opacity=".45"/>
+  <g transform="translate(72 66)">
+    <rect width="52" height="52" rx="15" fill="#0b3b2e"/>
+    <text x="26" y="34" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#b9f5ca">PR</text>
+    <text x="68" y="24" font-family="Arial" font-size="21" font-weight="700" fill="#14221c">Personal Data Rights</text>
+    <text x="68" y="44" font-family="Arial" font-size="12" letter-spacing="2" fill="#587065">WORKBENCH</text>
+  </g>
+  <text x="72" y="215" font-family="Arial" font-size="64" font-weight="700" fill="#14221c">Make your data</text>
+  <text x="72" y="286" font-family="Arial" font-size="64" font-weight="700" fill="#2b7658">footprint legible.</text>
+  <text x="74" y="332" font-family="Arial" font-size="20" fill="#587065">A safe, human-confirmed privacy plan powered by browser-native WebMCP tools.</text>
+  <g transform="translate(72 386)">
+    <rect width="620" height="146" rx="24" fill="#0b3b2e"/>
+    <text x="28" y="42" font-family="Arial" font-size="14" font-weight="700" fill="#9ebfaf">DEMO BYTE REDUCTION</text>
+    <text x="28" y="100" font-family="Arial" font-size="54" font-weight="700" fill="#d9ff72">92.6%</text>
+    <rect x="226" y="68" width="360" height="12" rx="6" fill="#315c50"/>
+    <rect x="226" y="68" width="333" height="12" rx="6" fill="#b9f5ca"/>
+  </g>
+  <g transform="translate(730 390)">
+    <rect width="120" height="140" rx="22" fill="#fff0ec"/>
+    <rect x="136" width="120" height="140" rx="22" fill="#fff7dd"/>
+    <rect x="272" width="120" height="140" rx="22" fill="#eaf8ef"/>
+    <text x="60" y="58" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#c85148">9</text>
+    <text x="60" y="92" text-anchor="middle" font-family="Arial" font-size="15" fill="#14221c">Delete</text>
+    <text x="196" y="58" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#a96d1c">2</text>
+    <text x="196" y="92" text-anchor="middle" font-family="Arial" font-size="15" fill="#14221c">Retained</text>
+    <text x="332" y="58" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#2b7658">3</text>
+    <text x="332" y="92" text-anchor="middle" font-family="Arial" font-size="15" fill="#14221c">Keep</text>
+  </g>
+</svg>

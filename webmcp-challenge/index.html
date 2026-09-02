@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Three WebMCP workbenches for high-stakes operational decisions, built for the OpenAI WebMCP Challenge."
+    />
+    <title>WebMCP Challenge Workbenches</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <p class="eyebrow">OpenAI WebMCP Challenge</p>
+        <h1>Agents prepare the decision. People control the commit.</h1>
+        <p class="lede">
+          Three deterministic workbenches show how a person and an agent can
+          investigate complex state together, stage a reversible plan, and
+          inspect exactly what will change before a consequential action.
+        </p>
+        <div class="compatibility">
+          <span>Top-level imperative Site Tools</span>
+          <span>Mock data, no login</span>
+          <span>Best with GPT-5.6 Sol or Terra</span>
+        </div>
+      </header>
+
+      <section class="grid" aria-label="WebMCP demos">
+        <article class="card recall">
+          <p class="number">01</p>
+          <h2>Recall Response Workbench</h2>
+          <p>
+            Trace one suspect manufacturing batch across 8,420 orders, isolate
+            the exact 37 affected shipments, exclude 213 lookalikes, and stage
+            quarantine, carrier interception, and customer outreach without
+            exposing a commit tool.
+          </p>
+          <a href="../webmcp-recall-response-workbench/">
+            Open recall demo <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="card privacy">
+          <p class="number">02</p>
+          <h2>Personal Data Rights Workbench</h2>
+          <p>
+            Turn a dense privacy inventory into an explicit category-by-category
+            plan: erase nine categories, retain two by policy, keep three by
+            choice, and stage consent or export changes against one versioned plan.
+          </p>
+          <a href="../webmcp-data-rights-workbench/">
+            Open privacy demo <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="card access">
+          <p class="number">03</p>
+          <h2>Least-Privilege Access Review Workbench</h2>
+          <p>
+            Follow transitive access paths through a live entitlement graph,
+            remove five unnecessary grants, preserve the one rollback dependency,
+            and rehearse the post-change security posture before confirmation.
+          </p>
+          <a href="../webmcp-access-review-workbench/">
+            Open access demo <span aria-hidden="true">→</span>
+          </a>
+        </article>
+      </section>
+
+      <section class="how">
+        <div>
+          <p class="eyebrow">Shared interaction model</p>
+          <h2>Observe → analyze → stage → inspect → confirm</h2>
+        </div>
+        <p>
+          Each page registers JavaScript tools through
+          <code>document.modelContext.registerTool()</code>. The agent operates
+          on the same visible, deterministic state as the person. Consequential
+          commitment remains a normal visible page action rather than a WebMCP
+          tool, while ordinary browser safety policies continue to apply.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
