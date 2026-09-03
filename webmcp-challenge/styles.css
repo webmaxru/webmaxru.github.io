@@ -113,6 +113,18 @@ h1 {
   background: #f97316;
 }
 
+.grid-resilience::after {
+  background: #38bdf8;
+}
+
+.plate::after {
+  background: #34d399;
+}
+
+.provenance::after {
+  background: #facc15;
+}
+
 .privacy::after {
   background: #14b8a6;
 }

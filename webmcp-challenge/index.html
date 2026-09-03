@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Three WebMCP workbenches for high-stakes operational decisions, built for the OpenAI WebMCP Challenge."
+      content="Six WebMCP workbenches for high-stakes human-agent collaboration, built for the OpenAI WebMCP Challenge."
     />
     <title>WebMCP Challenge Workbenches</title>
     <link rel="stylesheet" href="./styles.css" />
@@ -16,20 +16,59 @@
         <p class="eyebrow">OpenAI WebMCP Challenge</p>
         <h1>Agents prepare the decision. People control the commit.</h1>
         <p class="lede">
-          Three deterministic workbenches show how a person and an agent can
-          investigate complex state together, stage a reversible plan, and
-          inspect exactly what will change before a consequential action.
+          Six substantially different workbenches show how people and agents can
+          investigate complex state together, stage reversible plans, and inspect
+          exactly what will change before a consequential action.
         </p>
         <div class="compatibility">
           <span>Top-level imperative Site Tools</span>
-          <span>Mock data, no login</span>
-          <span>Best with GPT-5.6 Sol or Terra</span>
+          <span>Synthetic data, no login</span>
+          <span>ChatGPT desktop or Chrome 149+</span>
         </div>
       </header>
 
       <section class="grid" aria-label="WebMCP demos">
-        <article class="card recall">
+        <article class="card grid-resilience">
           <p class="number">01</p>
+          <h2>Grid Resilience Lab</h2>
+          <p>
+            Restore a storm-damaged community microgrid without energizing a
+            live fault, violating interlocks, or spending the reserve needed by
+            a hospital, shelter, and water pump.
+          </p>
+          <a href="../webmcp-grid-resilience/">
+            Open grid demo <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="card plate">
+          <p class="number">02</p>
+          <h2>PlateWeave</h2>
+          <p>
+            Compare deterministic 96-well assay layouts, preserve a scientist's
+            locked scarce sample, reject stale plans, and require visible
+            approval before exporting the exact plate.
+          </p>
+          <a href="../webmcp-plate-studio/">
+            Open plate demo <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="card provenance">
+          <p class="number">03</p>
+          <h2>Tracebound</h2>
+          <p>
+            Build an evidence-bound museum provenance graph, preserve an
+            unresolved wartime gap, quarantine instruction-like source text,
+            and bind a human-approved label to its exact evidence.
+          </p>
+          <a href="../webmcp-provenance-workbench/">
+            Open provenance demo <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="card recall">
+          <p class="number">04</p>
           <h2>Recall Response Workbench</h2>
           <p>
             Trace one suspect manufacturing batch across 8,420 orders, isolate
@@ -43,7 +82,7 @@
         </article>
 
         <article class="card privacy">
-          <p class="number">02</p>
+          <p class="number">05</p>
           <h2>Personal Data Rights Workbench</h2>
           <p>
             Turn a dense privacy inventory into an explicit category-by-category
@@ -56,7 +95,7 @@
         </article>
 
         <article class="card access">
-          <p class="number">03</p>
+          <p class="number">06</p>
           <h2>Least-Privilege Access Review Workbench</h2>
           <p>
             Follow transitive access paths through a live entitlement graph,
