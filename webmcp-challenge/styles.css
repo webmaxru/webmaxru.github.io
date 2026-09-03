@@ -154,6 +154,12 @@ h1 {
   line-height: 1.65;
 }
 
+.card-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: auto;
+}
+
 .card a {
   position: relative;
   z-index: 1;
@@ -161,7 +167,6 @@ h1 {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  margin-top: auto;
   padding: 15px 17px;
   border-radius: 14px;
   color: #06111e;
@@ -175,6 +180,18 @@ h1 {
   background: #ffffff;
   outline: 3px solid #7dd3fc;
   outline-offset: 3px;
+}
+
+.card .video-link {
+  border: 1px solid #48607e;
+  color: #e8f1ff;
+  background: rgba(8, 20, 35, 0.72);
+}
+
+.card .video-link:hover,
+.card .video-link:focus-visible {
+  color: #06111e;
+  background: #ffffff;
 }
 
 .how {
