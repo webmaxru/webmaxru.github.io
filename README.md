@@ -1,13 +1,17 @@
 # webmaxru.github.io
 
-Personal website and static demo host.
+Minimal portfolio site for Maxim's projects and experiments.
 
-## WebMCP Challenge demos
+## Local development
 
-- `/webmcp-challenge/`
-- `/webmcp-grid-resilience/` — [video](https://youtu.be/SdDKlUeFK2Y)
-- `/webmcp-plate-studio/` — [video](https://www.youtube.com/watch?v=FjriwBNjET4)
-- `/webmcp-provenance-workbench/` — [video](https://youtu.be/MAwLfQNHeoE)
-- `/webmcp-recall-response-workbench/` — [video](https://youtu.be/04OXd6_Sppc)
-- `/webmcp-data-rights-workbench/` — [video](https://youtu.be/Yt5Ggk0LXLw)
-- `/webmcp-access-review-workbench/` — [video](https://youtu.be/q2ydz9Y1_L8)
+The project catalog lives in [`projects.json`](projects.json). Edit the JSON, then build the static site:
+
+```bash
+npm run build
+```
+
+The generated site is written to `dist/`. Project metadata is rendered at build time; thumbnails are loaded from their GitHub social previews when the page is viewed.
+
+## GitHub Pages
+
+The workflow in `.github/workflows/pages.yml` builds the site and deploys `dist/` to GitHub Pages whenever `master` changes. Enable GitHub Actions as the repository's Pages source once, then pushes to `master` will publish the site.
