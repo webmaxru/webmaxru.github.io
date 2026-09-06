@@ -16,7 +16,7 @@ Each project can set `thumbnail` to a path under `src/`, such as `assets/thumbna
 
 The build also generates `robots.txt`, `sitemap.xml`, `site.webmanifest`, `llms.txt`, and `llms-full.txt`. SEO metadata and JSON-LD are rendered from the shared site configuration in `build.mjs`.
 
-Brand icons and the social sharing card are committed under `src/assets/brand/`. Regenerate them on Windows with:
+Brand icons, the circular header portrait, and the social sharing card are committed under `src/assets/brand/`. Their source photo lives at `scripts/assets/maxim-salnikov.2024.jpg`. Regenerate them on Windows with:
 
 ```powershell
 npm run generate:brand

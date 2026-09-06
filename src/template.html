@@ -33,7 +33,7 @@
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Maxim Salnikov projects and experiments portfolio"
+      content="Portrait of Maxim Salnikov beside the words Maxim builds"
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="{{SITE_TITLE}}" />
@@ -41,7 +41,7 @@
     <meta name="twitter:image" content="{{SOCIAL_IMAGE_URL}}" />
     <meta
       name="twitter:image:alt"
-      content="Maxim Salnikov projects and experiments portfolio"
+      content="Portrait of Maxim Salnikov beside the words Maxim builds"
     />
     <script type="application/ld+json">
 {{STRUCTURED_DATA}}
@@ -174,8 +174,18 @@
       }
 
       .wordmark {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
         color: var(--cp-accent);
         font-weight: 700;
+      }
+
+      .wordmark-avatar {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 auto;
+        border-radius: 50%;
       }
 
       .utility-note {
@@ -622,7 +632,16 @@
     <div class="site-shell">
       <header class="site-header">
         <div class="utility-bar">
-          <a class="wordmark" href="/">MAXIM SALNIKOV</a>
+          <a class="wordmark" href="/" aria-label="Maxim Salnikov home">
+            <img
+              class="wordmark-avatar"
+              src="/assets/brand/portrait-512.png"
+              alt=""
+              width="30"
+              height="30"
+            />
+            <span>MAXIM SALNIKOV</span>
+          </a>
           <a class="utility-note" href="https://github.com/webmaxru" target="_blank" rel="noopener noreferrer">
             @WEBMAXRU ON GITHUB
           </a>

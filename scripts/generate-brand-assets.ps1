@@ -1,5 +1,6 @@
 param(
-  [string]$OutputDirectory = (Join-Path $PSScriptRoot "..\src\assets\brand")
+  [string]$OutputDirectory = (Join-Path $PSScriptRoot "..\src\assets\brand"),
+  [string]$SourcePhoto = (Join-Path $PSScriptRoot "assets\maxim-salnikov.2024.jpg")
 )
 
 Set-StrictMode -Version Latest
@@ -8,13 +9,19 @@ $ErrorActionPreference = "Stop"
 Add-Type -AssemblyName System.Drawing
 
 $OutputDirectory = [System.IO.Path]::GetFullPath($OutputDirectory)
+$SourcePhoto = [System.IO.Path]::GetFullPath($SourcePhoto)
+
+if (-not (Test-Path -LiteralPath $SourcePhoto -PathType Leaf)) {
+  throw "Portrait source not found: $SourcePhoto"
+}
+
 New-Item -ItemType Directory -Force $OutputDirectory | Out-Null
 
 $background = [System.Drawing.ColorTranslator]::FromHtml("#efebe4")
 $text = [System.Drawing.ColorTranslator]::FromHtml("#242424")
 $muted = [System.Drawing.ColorTranslator]::FromHtml("#5c5c5c")
 $accent = [System.Drawing.ColorTranslator]::FromHtml("#b11f4b")
-$white = [System.Drawing.Color]::White
+$transparent = [System.Drawing.Color]::Transparent
 
 function Set-GraphicsQuality {
   param([System.Drawing.Graphics]$Graphics)
@@ -24,53 +31,45 @@ function Set-GraphicsQuality {
     [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
   $Graphics.PixelOffsetMode =
     [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
+  $Graphics.CompositingQuality =
+    [System.Drawing.Drawing2D.CompositingQuality]::HighQuality
   $Graphics.TextRenderingHint =
     [System.Drawing.Text.TextRenderingHint]::AntiAliasGridFit
 }
 
-function Draw-BrandMark {
-  param(
-    [System.Drawing.Graphics]$Graphics,
-    [float]$X,
-    [float]$Y,
-    [float]$Size,
-    [System.Drawing.Color]$Color
+function Get-PortraitCrop {
+  param([System.Drawing.Image]$Source)
+
+  $cropSize = [Math]::Min(
+    [float]($Source.Width * 0.753),
+    [float]($Source.Height * 0.753)
   )
+  $cropX = [float]($Source.Width * 0.168)
+  $cropY = [float]($Source.Height * 0.029)
 
-  $strokeWidth = [Math]::Max(2, $Size * 0.105)
-  $pen = [System.Drawing.Pen]::new($Color, $strokeWidth)
-  $pen.StartCap = [System.Drawing.Drawing2D.LineCap]::Round
-  $pen.EndCap = [System.Drawing.Drawing2D.LineCap]::Round
-  $pen.LineJoin = [System.Drawing.Drawing2D.LineJoin]::Round
+  if ($cropX + $cropSize -gt $Source.Width) {
+    $cropX = $Source.Width - $cropSize
+  }
+  if ($cropY + $cropSize -gt $Source.Height) {
+    $cropY = $Source.Height - $cropSize
+  }
 
-  $points = [System.Drawing.PointF[]]@(
-    [System.Drawing.PointF]::new($X + ($Size * 0.2), $Y + ($Size * 0.74)),
-    [System.Drawing.PointF]::new($X + ($Size * 0.2), $Y + ($Size * 0.26)),
-    [System.Drawing.PointF]::new($X + ($Size * 0.5), $Y + ($Size * 0.58)),
-    [System.Drawing.PointF]::new($X + ($Size * 0.8), $Y + ($Size * 0.26)),
-    [System.Drawing.PointF]::new($X + ($Size * 0.8), $Y + ($Size * 0.74))
+  return [System.Drawing.RectangleF]::new(
+    $cropX,
+    $cropY,
+    $cropSize,
+    $cropSize
   )
-
-  $Graphics.DrawLines($pen, $points)
-
-  $dotBrush = [System.Drawing.SolidBrush]::new($Color)
-  $dotSize = $Size * 0.11
-  $Graphics.FillEllipse(
-    $dotBrush,
-    $X + ($Size * 0.74),
-    $Y + ($Size * 0.8),
-    $dotSize,
-    $dotSize
-  )
-
-  $dotBrush.Dispose()
-  $pen.Dispose()
 }
 
-function New-IconBitmap {
+function New-PortraitBitmap {
   param(
+    [System.Drawing.Image]$Source,
     [int]$Size,
-    [double]$MarkScale = 0.9
+    [System.Drawing.Color]$CanvasColor,
+    [double]$PaddingRatio,
+    [System.Drawing.Color]$RingColor,
+    [double]$RingRatio
   )
 
   $bitmap = [System.Drawing.Bitmap]::new(
@@ -82,11 +81,48 @@ function New-IconBitmap {
 
   try {
     Set-GraphicsQuality $graphics
-    $graphics.Clear($accent)
+    $graphics.Clear($CanvasColor)
 
-    $markSize = [float]($Size * $MarkScale)
-    $offset = [float](($Size - $markSize) / 2)
-    Draw-BrandMark $graphics $offset $offset $markSize $white
+    $padding = [float]($Size * $PaddingRatio)
+    $outerSize = [float]($Size - (2 * $padding))
+    $ringWidth = [float][Math]::Max(1, $Size * $RingRatio)
+    $outerRectangle = [System.Drawing.RectangleF]::new(
+      $padding,
+      $padding,
+      $outerSize,
+      $outerSize
+    )
+    $ringBrush = [System.Drawing.SolidBrush]::new($RingColor)
+
+    try {
+      $graphics.FillEllipse($ringBrush, $outerRectangle)
+    }
+    finally {
+      $ringBrush.Dispose()
+    }
+
+    $innerRectangle = [System.Drawing.RectangleF]::new(
+      $outerRectangle.X + $ringWidth,
+      $outerRectangle.Y + $ringWidth,
+      $outerRectangle.Width - (2 * $ringWidth),
+      $outerRectangle.Height - (2 * $ringWidth)
+    )
+    $clipPath = [System.Drawing.Drawing2D.GraphicsPath]::new()
+
+    try {
+      $clipPath.AddEllipse($innerRectangle)
+      $graphics.SetClip($clipPath)
+      $graphics.DrawImage(
+        $Source,
+        $innerRectangle,
+        (Get-PortraitCrop $Source),
+        [System.Drawing.GraphicsUnit]::Pixel
+      )
+      $graphics.ResetClip()
+    }
+    finally {
+      $clipPath.Dispose()
+    }
   }
   finally {
     $graphics.Dispose()
@@ -95,14 +131,25 @@ function New-IconBitmap {
   return $bitmap
 }
 
-function Save-IconPng {
+function Save-PortraitPng {
   param(
+    [System.Drawing.Image]$Source,
     [string]$Path,
     [int]$Size,
-    [double]$MarkScale = 0.9
+    [System.Drawing.Color]$CanvasColor,
+    [double]$PaddingRatio,
+    [System.Drawing.Color]$RingColor,
+    [double]$RingRatio
   )
 
-  $bitmap = New-IconBitmap $Size $MarkScale
+  $bitmap = New-PortraitBitmap `
+    $Source `
+    $Size `
+    $CanvasColor `
+    $PaddingRatio `
+    $RingColor `
+    $RingRatio
+
   try {
     $bitmap.Save($Path, [System.Drawing.Imaging.ImageFormat]::Png)
   }
@@ -111,10 +158,19 @@ function Save-IconPng {
   }
 }
 
-function Get-IconPngBytes {
-  param([int]$Size)
+function Get-PortraitPngBytes {
+  param(
+    [System.Drawing.Image]$Source,
+    [int]$Size
+  )
 
-  $bitmap = New-IconBitmap $Size
+  $bitmap = New-PortraitBitmap `
+    $Source `
+    $Size `
+    $transparent `
+    0 `
+    $accent `
+    0.024
   $stream = [System.IO.MemoryStream]::new()
 
   try {
@@ -128,12 +184,15 @@ function Get-IconPngBytes {
 }
 
 function Save-FaviconIco {
-  param([string]$Path)
+  param(
+    [System.Drawing.Image]$Source,
+    [string]$Path
+  )
 
   $entries = foreach ($size in 16, 32, 48) {
     [PSCustomObject]@{
       Size = $size
-      Bytes = [byte[]](Get-IconPngBytes $size)
+      Bytes = [byte[]](Get-PortraitPngBytes $Source $size)
     }
   }
 
@@ -171,8 +230,28 @@ function Save-FaviconIco {
   }
 }
 
+function Save-FaviconSvg {
+  param(
+    [System.Drawing.Image]$Source,
+    [string]$Path
+  )
+
+  $previewBytes = Get-PortraitPngBytes $Source 96
+  $base64 = [System.Convert]::ToBase64String($previewBytes)
+  $svg = @"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <image width="96" height="96" href="data:image/png;base64,$base64"/>
+</svg>
+"@
+
+  Set-Content $Path $svg -Encoding utf8 -NoNewline
+}
+
 function Save-SocialCard {
-  param([string]$Path)
+  param(
+    [System.Drawing.Image]$Source,
+    [string]$Path
+  )
 
   $bitmap = [System.Drawing.Bitmap]::new(
     1200,
@@ -196,13 +275,13 @@ function Save-SocialCard {
     )
     $titleFont = [System.Drawing.Font]::new(
       "Segoe UI",
-      112,
+      92,
       [System.Drawing.FontStyle]::Bold,
       [System.Drawing.GraphicsUnit]::Pixel
     )
     $ledeFont = [System.Drawing.Font]::new(
       "Segoe UI",
-      34,
+      32,
       [System.Drawing.FontStyle]::Regular,
       [System.Drawing.GraphicsUnit]::Pixel
     )
@@ -212,20 +291,27 @@ function Save-SocialCard {
       [System.Drawing.FontStyle]::Regular,
       [System.Drawing.GraphicsUnit]::Pixel
     )
+    $portrait = New-PortraitBitmap `
+      $Source `
+      330 `
+      $transparent `
+      0 `
+      $accent `
+      0.024
 
     try {
       $graphics.FillRectangle($accentBrush, 0, 0, 18, 630)
       $graphics.DrawString("MAXIM SALNIKOV", $smallFont, $accentBrush, 72, 64)
 
       $title = "Maxim builds"
-      $graphics.DrawString($title, $titleFont, $textBrush, 66, 174)
+      $graphics.DrawString($title, $titleFont, $textBrush, 66, 184)
       $titleSize = $graphics.MeasureString($title, $titleFont)
       $graphics.DrawString(
         ".",
         $titleFont,
         $accentBrush,
-        66 + $titleSize.Width - 18,
-        174
+        66 + $titleSize.Width - 14,
+        184
       )
 
       $graphics.DrawString(
@@ -233,7 +319,7 @@ function Save-SocialCard {
         $ledeFont,
         $mutedBrush,
         72,
-        340
+        330
       )
 
       $rulePen = [System.Drawing.Pen]::new(
@@ -254,10 +340,10 @@ function Save-SocialCard {
         72,
         520
       )
-
-      Draw-BrandMark $graphics 915 70 220 $accent
+      $graphics.DrawImage($portrait, 810, 78, 330, 330)
     }
     finally {
+      $portrait.Dispose()
       $urlFont.Dispose()
       $ledeFont.Dispose()
       $titleFont.Dispose()
@@ -275,22 +361,55 @@ function Save-SocialCard {
   }
 }
 
-$faviconSvg = @"
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#b11f4b"/>
-  <path d="M14 46V18l18 19 18-19v28" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="49" cy="52" r="4" fill="#fff"/>
-</svg>
-"@
+$source = [System.Drawing.Image]::FromFile($SourcePhoto)
 
-Set-Content (
-  Join-Path $OutputDirectory "favicon.svg"
-) $faviconSvg -Encoding utf8 -NoNewline
-Save-FaviconIco (Join-Path $OutputDirectory "favicon.ico")
-Save-IconPng (Join-Path $OutputDirectory "apple-touch-icon.png") 180
-Save-IconPng (Join-Path $OutputDirectory "icon-192.png") 192
-Save-IconPng (Join-Path $OutputDirectory "icon-512.png") 512
-Save-IconPng (Join-Path $OutputDirectory "icon-maskable-512.png") 512 0.66
-Save-SocialCard (Join-Path $OutputDirectory "social-card.png")
+try {
+  Save-PortraitPng `
+    $source `
+    (Join-Path $OutputDirectory "portrait-512.png") `
+    512 `
+    $transparent `
+    0 `
+    $accent `
+    0.024
+  Save-FaviconSvg $source (Join-Path $OutputDirectory "favicon.svg")
+  Save-FaviconIco $source (Join-Path $OutputDirectory "favicon.ico")
+  Save-PortraitPng `
+    $source `
+    (Join-Path $OutputDirectory "apple-touch-icon.png") `
+    180 `
+    $background `
+    0.08 `
+    $accent `
+    0.024
+  Save-PortraitPng `
+    $source `
+    (Join-Path $OutputDirectory "icon-192.png") `
+    192 `
+    $background `
+    0.08 `
+    $accent `
+    0.024
+  Save-PortraitPng `
+    $source `
+    (Join-Path $OutputDirectory "icon-512.png") `
+    512 `
+    $background `
+    0.08 `
+    $accent `
+    0.024
+  Save-PortraitPng `
+    $source `
+    (Join-Path $OutputDirectory "icon-maskable-512.png") `
+    512 `
+    $accent `
+    0.18 `
+    $background `
+    0.018
+  Save-SocialCard $source (Join-Path $OutputDirectory "social-card.png")
+}
+finally {
+  $source.Dispose()
+}
 
-Write-Host "Generated brand assets in $OutputDirectory"
+Write-Host "Generated portrait brand assets in $OutputDirectory"

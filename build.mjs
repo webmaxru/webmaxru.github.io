@@ -15,6 +15,7 @@ const site = Object.freeze({
   language: "en",
   locale: "en_US",
   socialImagePath: "assets/brand/social-card.png",
+  portraitPath: "assets/brand/portrait-512.png",
   themeColor: "#b11f4b",
   backgroundColor: "#efebe4",
 });
@@ -92,6 +93,7 @@ const groupedProjects = projects.reduce((groups, project) => {
 }, new Map());
 
 const socialImageUrl = new URL(site.socialImagePath, site.url).href;
+const portraitUrl = new URL(site.portraitPath, site.url).href;
 const githubProfileUrl = "https://github.com/webmaxru";
 const linkedinProfileUrl = "https://www.linkedin.com/in/webmax/";
 
@@ -114,6 +116,7 @@ const structuredData = {
       "@id": `${site.url}#person`,
       name: site.author,
       url: site.url,
+      image: portraitUrl,
       sameAs: [githubProfileUrl, linkedinProfileUrl],
     },
     {
@@ -363,6 +366,7 @@ const requiredBrandAssets = [
   "icon-192.png",
   "icon-512.png",
   "icon-maskable-512.png",
+  "portrait-512.png",
   "social-card.png",
 ];
 

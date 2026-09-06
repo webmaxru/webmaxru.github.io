@@ -127,9 +127,16 @@ assert(structuredTypes.includes("WebSite"), "JSON-LD must include WebSite.");
 const imageSources = [
   ...html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g),
 ].map((match) => match[1]);
+const projectImageSources = imageSources.filter((source) =>
+  source.startsWith("assets/thumbnails/"),
+);
 assert(
-  imageSources.length === projects.length,
+  projectImageSources.length === projects.length,
   "Every project must render one thumbnail image.",
+);
+assert(
+  imageSources.includes("/assets/brand/portrait-512.png"),
+  "The header must render the local portrait.",
 );
 for (const source of imageSources) {
   assert(
@@ -160,6 +167,7 @@ const expectedImageSizes = new Map([
   ["assets/brand/icon-192.png", [192, 192]],
   ["assets/brand/icon-512.png", [512, 512]],
   ["assets/brand/icon-maskable-512.png", [512, 512]],
+  ["assets/brand/portrait-512.png", [512, 512]],
   ["assets/brand/social-card.png", [1200, 630]],
 ]);
 for (const [relativePath, expected] of expectedImageSizes) {
