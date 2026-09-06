@@ -4,7 +4,7 @@
     "repo": "webmaxru/qravn",
     "name": "QRavn",
     "description": "Read a QR link before your camera app opens it, with offline-first checks in Norwegian and English.",
-    "thumbnail": "generated",
+    "thumbnail": "https://opengraph.githubassets.com/9d0d7b0b8011aac9f61ad87943fa7595269d3d36b14f07862abe0d29b06af94d/webmaxru/qravn",
     "live": "https://qravn.isainative.dev"
   },
   {
@@ -20,7 +20,7 @@
     "repo": "webmaxru/barnebursdag-planlegger",
     "name": "Kakeklar",
     "description": "Plan a Norwegian children's birthday party with two sliders, an instant shopping list, and a printable checklist.",
-    "thumbnail": "generated",
+    "thumbnail": "https://opengraph.githubassets.com/d62a91659ead9de942a864bbcb0d071cf18ab4c3507c59bab6f346b4ef9be2cc/webmaxru/barnebursdag-planlegger",
     "live": null,
     "liveLabel": "Open repository"
   },
@@ -46,7 +46,7 @@
     "repo": "webmaxru/nordlys-i-natt",
     "name": "Nordlys i natt?",
     "description": "Find out whether the northern lights are worth chasing tonight in Norway.",
-    "thumbnail": "generated",
+    "thumbnail": "https://opengraph.githubassets.com/126cbe0737921472390ac036c2b94f565b95da693ae005cc6bbdc790641f341b/webmaxru/nordlys-i-natt",
     "live": "https://nordlys.isainative.dev"
   },
   {
@@ -54,7 +54,7 @@
     "repo": "webmaxru/ai-native-dev",
     "name": "AI-native dev",
     "description": "A plugin marketplace for AI-native development agent skills.",
-    "thumbnail": "generated",
+    "thumbnail": "https://opengraph.githubassets.com/6eda2853a897a2a9726631f05c6f15af7cbcf6cb99012162af66429c53aea709/webmaxru/ai-native-dev",
     "live": "https://webmaxru.github.io/ai-native-dev/"
   },
   {
