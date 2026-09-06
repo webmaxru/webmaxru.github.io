@@ -8,6 +8,14 @@
     "live": "https://isainative.dev"
   },
   {
+    "category": "Developer tools",
+    "repo": "webmaxru/finops-copilot",
+    "name": "FinOps Copilot",
+    "description": "Simulate monthly GitHub Copilot spend for enterprise seats and cost centers.",
+    "thumbnail": "assets/thumbnails/finops-copilot.png",
+    "live": "https://finops.isainative.dev/"
+  },
+  {
     "category": "Applications",
     "repo": "webmaxru/qravn",
     "name": "QRavn",
@@ -66,28 +74,11 @@
   },
   {
     "category": "Developer tools",
-    "repo": "webmaxru/enonic-agent-skills",
-    "name": "Enonic XP Agent Skills",
-    "description": "Agent skills for Enonic XP development, content migration, GraphQL, Next.XP, and sandbox tooling.",
-    "thumbnail": "assets/thumbnails/enonic-agent-skills.svg",
-    "live": null,
-    "liveLabel": "Open repository"
-  },
-  {
-    "category": "Developer tools",
     "repo": "webmaxru/awesome-microsoft-agent-framework",
     "name": "Awesome Microsoft Agent Framework",
     "description": "A curated list of Microsoft Agent Framework resources.",
     "thumbnail": "assets/thumbnails/awesome-microsoft-agent-framework.png",
     "live": "https://aka.ms/AgentFramework"
-  },
-  {
-    "category": "Developer tools",
-    "repo": "webmaxru/finops-copilot",
-    "name": "FinOps Copilot",
-    "description": "Simulate monthly GitHub Copilot spend for enterprise seats and cost centers.",
-    "thumbnail": "assets/thumbnails/finops-copilot.png",
-    "live": "https://finops.isainative.dev/"
   },
   {
     "category": "Developer tools",
@@ -104,6 +95,15 @@
     "description": "A TypeScript client, credential-free mock, and scope wizard for Norway's Maskinporten.",
     "thumbnail": "assets/thumbnails/maskinporten.png",
     "live": "https://maskinporten.isainative.dev/"
+  },
+  {
+    "category": "Developer tools",
+    "repo": "webmaxru/enonic-agent-skills",
+    "name": "Enonic XP Agent Skills",
+    "description": "Agent skills for Enonic XP development, content migration, GraphQL, Next.XP, and sandbox tooling.",
+    "thumbnail": "assets/thumbnails/enonic-agent-skills.svg",
+    "live": null,
+    "liveLabel": "Open repository"
   },
   {
     "category": "Experimental",
