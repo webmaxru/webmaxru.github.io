@@ -1,0 +1,10 @@
+name: apm-packages
+version: 1.0.0
+description: APM packages for this project
+author: Maxim Salnikov
+dependencies:
+  apm:
+    - webmaxru/ai-native-dev/skills/agent-package-manager
+    - webmaxru/ai-native-dev/prompts/seo-and-agent-readiness.prompt.md
+  mcp: []
+scripts: {}
