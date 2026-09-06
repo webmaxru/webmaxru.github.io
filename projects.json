@@ -4,7 +4,7 @@
     "repo": "webmaxru/qravn",
     "name": "QRavn",
     "description": "Read a QR link before your camera app opens it, with offline-first checks in Norwegian and English.",
-    "thumbnail": "https://qravn.isainative.dev/og.png",
+    "thumbnail": "assets/thumbnails/qravn.png",
     "live": "https://qravn.isainative.dev"
   },
   {
@@ -12,7 +12,7 @@
     "repo": "webmaxru/is-ai-native",
     "name": "Is AI Native",
     "description": "Audit public GitHub repositories for AI coding readiness across Copilot, Claude Code, and Codex.",
-    "thumbnail": "https://isainative.dev/social-card.png",
+    "thumbnail": "assets/thumbnails/is-ai-native.png",
     "live": "https://isainative.dev"
   },
   {
@@ -20,7 +20,7 @@
     "repo": "webmaxru/barnebursdag-planlegger",
     "name": "Kakeklar",
     "description": "Plan a Norwegian children's birthday party with two sliders, an instant shopping list, and a printable checklist.",
-    "thumbnail": "https://kakeklar.no/og-image.png",
+    "thumbnail": "assets/thumbnails/kakeklar.png",
     "live": "https://kakeklar.no/"
   },
   {
@@ -28,7 +28,7 @@
     "repo": "webmaxru/stemina",
     "name": "Stemina",
     "description": "Split a track into six stems in your browser on your GPU, with no upload.",
-    "thumbnail": "https://stemina.bpmtech.no/og-cover.png",
+    "thumbnail": "assets/thumbnails/stemina.png",
     "live": "https://stemina.bpmtech.no/"
   },
   {
@@ -36,7 +36,7 @@
     "repo": "webmaxru/bpm-counter",
     "name": "BPM Counter",
     "description": "A free, real-time BPM counter for DJs, producers, and techno sessions.",
-    "thumbnail": "https://bpmtech.no/images/social.png",
+    "thumbnail": "assets/thumbnails/bpm-counter.png",
     "live": "https://bpmtech.no"
   },
   {
@@ -44,7 +44,7 @@
     "repo": "webmaxru/nordlys-i-natt",
     "name": "Nordlys i natt?",
     "description": "Find out whether the northern lights are worth chasing tonight in Norway.",
-    "thumbnail": "https://nordlys.isainative.dev/og-image.png",
+    "thumbnail": "assets/thumbnails/nordlys-i-natt.png",
     "live": "https://nordlys.isainative.dev"
   },
   {
@@ -52,7 +52,7 @@
     "repo": "webmaxru/ai-native-dev",
     "name": "AI-native dev",
     "description": "A plugin marketplace for AI-native development agent skills.",
-    "thumbnail": "https://raw.githubusercontent.com/webmaxru/ai-native-dev/main/assets/repo-banner.svg",
+    "thumbnail": "assets/thumbnails/ai-native-dev.svg",
     "live": "https://webmaxru.github.io/ai-native-dev/"
   },
   {
@@ -60,7 +60,7 @@
     "repo": "webmaxru/web-ai-agent-skills",
     "name": "Web AI Agent Skills",
     "description": "Maintained agent skills for Prompt API, WebMCP, WebNN, and other browser Web AI APIs.",
-    "thumbnail": "https://raw.githubusercontent.com/webmaxru/web-ai-agent-skills/main/assets/repo-banner.svg",
+    "thumbnail": "assets/thumbnails/web-ai-agent-skills.svg",
     "live": null,
     "liveLabel": "Open repository"
   },
@@ -69,7 +69,7 @@
     "repo": "webmaxru/enonic-agent-skills",
     "name": "Enonic XP Agent Skills",
     "description": "Agent skills for Enonic XP development, content migration, GraphQL, Next.XP, and sandbox tooling.",
-    "thumbnail": "https://raw.githubusercontent.com/webmaxru/enonic-agent-skills/main/assets/repo-banner.svg",
+    "thumbnail": "assets/thumbnails/enonic-agent-skills.svg",
     "live": null,
     "liveLabel": "Open repository"
   },
@@ -78,7 +78,7 @@
     "repo": "webmaxru/awesome-microsoft-agent-framework",
     "name": "Awesome Microsoft Agent Framework",
     "description": "A curated list of Microsoft Agent Framework resources.",
-    "thumbnail": "https://raw.githubusercontent.com/microsoft/agent-framework/main/docs/assets/readme-banner.png",
+    "thumbnail": "assets/thumbnails/awesome-microsoft-agent-framework.png",
     "live": "https://aka.ms/AgentFramework"
   },
   {
@@ -86,7 +86,7 @@
     "repo": "webmaxru/finops-copilot",
     "name": "FinOps Copilot",
     "description": "Simulate monthly GitHub Copilot spend for enterprise seats and cost centers.",
-    "thumbnail": "https://finops.isainative.dev/og-image.png",
+    "thumbnail": "assets/thumbnails/finops-copilot.png",
     "live": "https://finops.isainative.dev/"
   },
   {
@@ -94,7 +94,7 @@
     "repo": "webmaxru/webiq-demo",
     "name": "Web IQ Demo",
     "description": "An interactive developer sandbox for Microsoft Web IQ grounding APIs.",
-    "thumbnail": "https://webiq.isainative.dev/og-image.png",
+    "thumbnail": "assets/thumbnails/webiq-demo.png",
     "live": "https://webiq.isainative.dev/"
   },
   {
@@ -102,7 +102,7 @@
     "repo": "webmaxru/maskinporten",
     "name": "Maskinporten Tools",
     "description": "A TypeScript client, credential-free mock, and scope wizard for Norway's Maskinporten.",
-    "thumbnail": "https://maskinporten.isainative.dev/og-image.png",
+    "thumbnail": "assets/thumbnails/maskinporten.png",
     "live": "https://maskinporten.isainative.dev/"
   },
   {
@@ -110,7 +110,7 @@
     "repo": "webmaxru/ai-engineering-system",
     "name": "AI Engineering System",
     "description": "A reference architecture for governed AI engineering systems.",
-    "thumbnail": "generated",
+    "thumbnail": "assets/thumbnails/ai-engineering-system.png",
     "live": "https://webmaxru.github.io/ai-engineering-system/"
   },
   {
@@ -118,7 +118,7 @@
     "repo": "webmaxru/webmcp-webai",
     "name": "WebMCP + Web AI",
     "description": "A fully local agentic experience built with WebMCP and the Prompt API.",
-    "thumbnail": "generated",
+    "thumbnail": "assets/thumbnails/webmcp-webai.png",
     "live": "https://webmaxru.github.io/webmcp-webai/"
   },
   {
@@ -126,7 +126,7 @@
     "repo": "webmaxru/sandcastle",
     "name": "Sandcastle",
     "description": "Watch a team of Copilot agents plan, build, fix, and self-heal an app in a live sandbox.",
-    "thumbnail": "https://sandcastle.isainative.dev/og-image.png",
+    "thumbnail": "assets/thumbnails/sandcastle.png",
     "live": "https://sandcastle.isainative.dev"
   },
   {
@@ -134,7 +134,7 @@
     "repo": "webmaxru/copilot-opentelemetry",
     "name": "Copilot OpenTelemetry",
     "description": "Visualize GitHub Copilot prompt-cache behavior from OpenTelemetry traces.",
-    "thumbnail": "https://copilot-opentelemetry.isainative.dev/images/article-cover.png",
+    "thumbnail": "assets/thumbnails/copilot-opentelemetry.png",
     "live": "https://copilot-opentelemetry.isainative.dev/"
   },
   {
@@ -142,7 +142,7 @@
     "repo": "webmaxru/ard-catalog-explorer",
     "name": "ARD Catalog Explorer",
     "description": "Explore and strictly validate Agentic Resource Discovery catalogs in the browser.",
-    "thumbnail": "https://ard-explorer.isainative.dev/assets/og-image.png",
+    "thumbnail": "assets/thumbnails/ard-catalog-explorer.png",
     "live": "https://delightful-tree-0725d2503.7.azurestaticapps.net"
   },
   {
@@ -150,7 +150,7 @@
     "repo": "webmaxru/epic-copilot",
     "name": "Epic Copilot",
     "description": "An AI-powered assistant for project managers, product owners, and delivery managers.",
-    "thumbnail": "https://raw.githubusercontent.com/webmaxru/epic-copilot/main/public/assets/screenshot-1.png",
+    "thumbnail": "assets/thumbnails/epic-copilot.png",
     "live": null,
     "liveLabel": "Open repository"
   },
@@ -159,7 +159,7 @@
     "repo": "webmaxru/webmcp-grid-resilience",
     "name": "WebMCP Grid Resilience",
     "description": "A WebMCP challenge demo for safe, human-approved microgrid restoration planning.",
-    "thumbnail": "generated",
+    "thumbnail": "assets/thumbnails/webmcp-grid-resilience.png",
     "live": "https://webmaxru.github.io/webmcp-grid-resilience/"
   },
   {
@@ -167,7 +167,7 @@
     "repo": "webmaxru/webmcp-data-rights-workbench",
     "name": "WebMCP Data Rights Workbench",
     "description": "A WebMCP challenge demo for retention-aware erasure, consent, and portability planning.",
-    "thumbnail": "generated",
+    "thumbnail": "assets/thumbnails/webmcp-data-rights-workbench.png",
     "live": "https://webmaxru.github.io/webmcp-data-rights-workbench/"
   },
   {
@@ -175,7 +175,7 @@
     "repo": "webmaxru/webmcp-provenance-workbench",
     "name": "WebMCP Provenance Workbench",
     "description": "A WebMCP challenge demo for evidence-bound provenance research with human approval.",
-    "thumbnail": "https://raw.githubusercontent.com/webmaxru/webmcp-provenance-workbench/main/submission-assets/screenshots/01-overview.png",
+    "thumbnail": "assets/thumbnails/webmcp-provenance-workbench.png",
     "live": "https://webmaxru.github.io/webmcp-provenance-workbench/"
   },
   {
@@ -183,7 +183,7 @@
     "repo": "webmaxru/webmcp-recall-response-workbench",
     "name": "WebMCP Recall Response Workbench",
     "description": "A WebMCP challenge demo for exact batch-recall tracing and staged customer response.",
-    "thumbnail": "generated",
+    "thumbnail": "assets/thumbnails/webmcp-recall-response-workbench.png",
     "live": "https://webmaxru.github.io/webmcp-recall-response-workbench/"
   },
   {
@@ -191,7 +191,7 @@
     "repo": "webmaxru/webmcp-access-review-workbench",
     "name": "WebMCP Access Review Workbench",
     "description": "A WebMCP challenge demo for explainable least-privilege SaaS access reviews.",
-    "thumbnail": "https://raw.githubusercontent.com/webmaxru/webmcp-access-review-workbench/main/public/access-review-card.svg",
+    "thumbnail": "assets/thumbnails/webmcp-access-review-workbench.svg",
     "live": "https://webmaxru.github.io/webmcp-access-review-workbench/"
   },
   {
@@ -199,7 +199,7 @@
     "repo": "webmaxru/webmcp-plate-studio",
     "name": "WebMCP Plate Studio",
     "description": "A WebMCP challenge demo for human-guided 96-well assay layout optimization.",
-    "thumbnail": "generated",
+    "thumbnail": "assets/thumbnails/webmcp-plate-studio.png",
     "live": "https://webmaxru.github.io/webmcp-plate-studio/"
   }
 ]

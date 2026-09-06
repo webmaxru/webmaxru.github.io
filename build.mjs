@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 const root = path.dirname(fileURLToPath(import.meta.url));
 const sourceDirectory = path.join(root, "src");
 const outputDirectory = path.join(root, "dist");
+const sourceAssetsDirectory = path.join(sourceDirectory, "assets");
 const projects = JSON.parse(
   fs.readFileSync(path.join(root, "projects.json"), "utf8"),
 );
@@ -36,6 +37,33 @@ const getInitials = (name) => {
     .toUpperCase();
 };
 
+const getThumbnailUrl = (project) => {
+  const thumbnail = project.thumbnail ?? "generated";
+  if (thumbnail === "generated") {
+    return thumbnail;
+  }
+
+  if (
+    path.isAbsolute(thumbnail) ||
+    thumbnail.startsWith("//") ||
+    /^[a-z][a-z\d+.-]*:/i.test(thumbnail)
+  ) {
+    throw new Error(`${project.name} must use a local thumbnail asset.`);
+  }
+
+  const thumbnailPath = path.resolve(sourceDirectory, thumbnail);
+  const relativePath = path.relative(sourceDirectory, thumbnailPath);
+  if (relativePath.startsWith("..") || path.isAbsolute(relativePath)) {
+    throw new Error(`${project.name} thumbnail must stay inside src.`);
+  }
+
+  if (!fs.existsSync(thumbnailPath)) {
+    throw new Error(`${project.name} thumbnail not found: ${thumbnail}`);
+  }
+
+  return thumbnail.replaceAll("\\", "/");
+};
+
 const groupedProjects = projects.reduce((groups, project) => {
   const group = groups.get(project.category) ?? [];
   group.push(project);
@@ -61,13 +89,10 @@ const renderGitHubIcon = () => `
 
 const renderProjectCard = (project) => {
   const repositoryUrl = `https://github.com/${project.repo}`;
-  const thumbnailUrl = project.thumbnail ?? "generated";
+  const thumbnailUrl = getThumbnailUrl(project);
   const useGeneratedThumbnail = thumbnailUrl === "generated";
   const liveUrl = project.live ?? repositoryUrl;
   const liveLabel = project.liveLabel ?? "Open live project";
-  const readmeImage = project.readmeImage
-    ? ` data-readme="${escapeHtml(project.readmeImage)}"`
-    : "";
   const fallbackLabel = getInitials(project.name);
   const thumbClass = useGeneratedThumbnail
     ? "project-thumb has-fallback"
@@ -79,8 +104,8 @@ const renderProjectCard = (project) => {
           src="${escapeHtml(thumbnailUrl)}"
           alt="${escapeHtml(project.name)} thumbnail"
           loading="lazy"
-          decoding="async"${readmeImage}
-          onerror="if(this.dataset.readme&&!this.dataset.readmeTried){this.dataset.readmeTried='true';this.src=this.dataset.readme}else{this.hidden=true;this.parentElement.classList.add('has-fallback')}"
+          decoding="async"
+          onerror="this.hidden=true;this.parentElement.classList.add('has-fallback')"
         />`;
 
   return `
@@ -143,5 +168,8 @@ fs.rmSync(outputDirectory, { recursive: true, force: true });
 fs.mkdirSync(outputDirectory, { recursive: true });
 fs.writeFileSync(path.join(outputDirectory, "index.html"), output);
 fs.copyFileSync(path.join(root, ".nojekyll"), path.join(outputDirectory, ".nojekyll"));
+fs.cpSync(sourceAssetsDirectory, path.join(outputDirectory, "assets"), {
+  recursive: true,
+});
 
 console.log(`Built ${projects.length} projects across ${groupedProjects.size} categories.`);
