@@ -78,7 +78,9 @@
     "name": "Awesome Microsoft Agent Framework",
     "description": "A curated list of Microsoft Agent Framework resources.",
     "thumbnail": "assets/thumbnails/awesome-microsoft-agent-framework.png",
-    "live": "https://aka.ms/AgentFramework"
+    "live": null,
+    "liveLabel": "Open repository",
+    "stars": "160+"
   },
   {
     "category": "Developer tools",

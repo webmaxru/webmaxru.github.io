@@ -278,6 +278,11 @@ const renderGitHubIcon = () => `
     <path fill="currentColor" d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.54v-2.1c-3.14.68-3.8-1.34-3.8-1.34-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.73 1.16 1.73 1.16 1 1.72 2.62 1.22 3.26.93.1-.72.4-1.22.71-1.5-2.5-.28-5.13-1.25-5.13-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.75 10.75 0 0 1 5.64 0c2.15-1.46 3.1-1.15 3.1-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.32-2.63 5.28-5.14 5.56.41.36.76 1.08.76 2.18v3.24c0 .3.2.65.78.54A11.25 11.25 0 0 0 12 .75Z"/>
   </svg>`;
 
+const renderStarIcon = () => `
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path fill="currentColor" d="m12 2.4 2.96 6 6.62.96-4.79 4.67 1.13 6.6L12 17.51l-5.92 3.12 1.13-6.6-4.79-4.67 6.62-.96L12 2.4Z"/>
+  </svg>`;
+
 const renderProjectCard = (project) => {
   const repositoryUrl = `https://github.com/${project.repo}`;
   const thumbnailUrl = getThumbnailUrl(project);
@@ -320,9 +325,19 @@ const renderProjectCard = (project) => {
             <span>${escapeHtml(liveLabel)}</span>
             <span aria-hidden="true">&rarr;</span>
           </a>
-          <a class="github-link" href="${escapeHtml(repositoryUrl)}" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeHtml(project.name)} on GitHub">
-            ${renderGitHubIcon()}
-          </a>
+          <div class="card-actions">
+            ${
+              project.stars
+                ? `<span class="star-count" aria-label="${escapeHtml(project.stars)} GitHub stars">
+              ${renderStarIcon()}
+              <span>${escapeHtml(project.stars)} stars</span>
+            </span>`
+                : ""
+            }
+            <a class="github-link" href="${escapeHtml(repositoryUrl)}" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeHtml(project.name)} on GitHub">
+              ${renderGitHubIcon()}
+            </a>
+          </div>
         </div>
       </div>
     </article>`;
