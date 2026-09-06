@@ -6,6 +6,18 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const sourceDirectory = path.join(root, "src");
 const outputDirectory = path.join(root, "dist");
 const sourceAssetsDirectory = path.join(sourceDirectory, "assets");
+const site = Object.freeze({
+  url: "https://webmaxru.github.io/",
+  title: "Maxim Salnikov | Projects and Experiments",
+  description:
+    "Explore selected projects by Maxim Salnikov, including useful web apps, developer tools, browser AI experiments, and inventive hackathon prototypes.",
+  author: "Maxim Salnikov",
+  language: "en",
+  locale: "en_US",
+  socialImagePath: "assets/brand/social-card.png",
+  themeColor: "#b11f4b",
+  backgroundColor: "#efebe4",
+});
 const projects = JSON.parse(
   fs.readFileSync(path.join(root, "projects.json"), "utf8"),
 );
@@ -17,6 +29,14 @@ const escapeHtml = (value) =>
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+
+const escapeXml = escapeHtml;
+
+const stringifyJsonForHtml = (value) =>
+  JSON.stringify(value, null, 2)
+    .replaceAll("<", "\\u003c")
+    .replaceAll(">", "\\u003e")
+    .replaceAll("&", "\\u0026");
 
 const slugify = (value) =>
   value
@@ -71,6 +91,10 @@ const groupedProjects = projects.reduce((groups, project) => {
   return groups;
 }, new Map());
 
+const socialImageUrl = new URL(site.socialImagePath, site.url).href;
+const githubProfileUrl = "https://github.com/webmaxru";
+const linkedinProfileUrl = "https://www.linkedin.com/in/webmax/";
+
 const categoryNavigation = [...groupedProjects.entries()]
   .map(
     ([category, categoryProjects], index) => `
@@ -81,6 +105,170 @@ const categoryNavigation = [...groupedProjects.entries()]
       </a>`,
   )
   .join("");
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${site.url}#person`,
+      name: site.author,
+      url: site.url,
+      sameAs: [githubProfileUrl, linkedinProfileUrl],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}#website`,
+      url: site.url,
+      name: site.title,
+      description: site.description,
+      inLanguage: site.language,
+      image: socialImageUrl,
+      author: {
+        "@id": `${site.url}#person`,
+      },
+      publisher: {
+        "@id": `${site.url}#person`,
+      },
+    },
+  ],
+};
+
+const projectMarkdownLink = (project) => {
+  const repositoryUrl = `https://github.com/${project.repo}`;
+  const projectUrl = project.live ?? repositoryUrl;
+  return `- [${project.name}](${projectUrl}): ${project.description} Source: [GitHub](${repositoryUrl}).`;
+};
+
+const llmsText = [
+  `# ${site.title}`,
+  "",
+  `> ${site.description}`,
+  "",
+  "This is the personal project portfolio of Maxim Salnikov. The site is a static, server-rendered catalog organized by project category.",
+  "",
+  "## Main pages",
+  "",
+  `- [Portfolio](${site.url}): Browse all ${projects.length} projects and experiments.`,
+  `- [Full project catalog](${new URL("llms-full.txt", site.url).href}): Read every project description and authoritative destination in one document.`,
+  "",
+  "## Project categories",
+  "",
+  ...[...groupedProjects.entries()].map(
+    ([category, categoryProjects]) =>
+      `- [${category}](${site.url}#${slugify(category)}): ${categoryProjects.length} ${categoryProjects.length === 1 ? "project" : "projects"}.`,
+  ),
+  "",
+  "## Authoritative profiles",
+  "",
+  `- [GitHub](${githubProfileUrl}): Source repositories and ongoing work by Maxim Salnikov.`,
+  `- [LinkedIn](${linkedinProfileUrl}): Professional profile for Maxim Salnikov.`,
+  "",
+].join("\n");
+
+const llmsFullText = [
+  `# ${site.title} - Full project catalog`,
+  "",
+  `> ${site.description}`,
+  "",
+  "Maxim Salnikov builds web applications, developer tools, browser AI experiments, and hackathon prototypes. The following catalog mirrors the human-readable portfolio.",
+  "",
+  ...[...groupedProjects.entries()].flatMap(([category, categoryProjects]) => [
+    `## ${category}`,
+    "",
+    ...categoryProjects.flatMap((project) => [
+      `### ${project.name}`,
+      "",
+      project.description,
+      "",
+      `- Project: ${project.live ?? `https://github.com/${project.repo}`}`,
+      `- Source: https://github.com/${project.repo}`,
+      "",
+    ]),
+  ]),
+  "## Authoritative profiles",
+  "",
+  `- GitHub: ${githubProfileUrl}`,
+  `- LinkedIn: ${linkedinProfileUrl}`,
+  "",
+].join("\n");
+
+const aiCrawlers = [
+  "GPTBot",
+  "OAI-SearchBot",
+  "ChatGPT-User",
+  "ClaudeBot",
+  "Claude-User",
+  "anthropic-ai",
+  "PerplexityBot",
+  "Perplexity-User",
+  "Google-Extended",
+  "Applebot-Extended",
+  "CCBot",
+  "cohere-ai",
+  "Amazonbot",
+  "meta-externalagent",
+];
+
+const robotsText = [
+  "User-agent: *",
+  "Allow: /",
+  "",
+  ...aiCrawlers.flatMap((crawler) => [
+    `User-agent: ${crawler}`,
+    "Allow: /",
+    "",
+  ]),
+  `Sitemap: ${new URL("sitemap.xml", site.url).href}`,
+  "",
+].join("\n");
+
+const buildDate = new Date().toISOString().slice(0, 10);
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>${escapeXml(site.url)}</loc>
+    <lastmod>${buildDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+`;
+
+const manifest = {
+  name: site.title,
+  short_name: "Maxim Builds",
+  description: site.description,
+  id: "/",
+  start_url: "/",
+  scope: "/",
+  display: "standalone",
+  background_color: site.backgroundColor,
+  theme_color: site.themeColor,
+  lang: site.language,
+  dir: "ltr",
+  categories: ["portfolio", "developer", "productivity"],
+  icons: [
+    {
+      src: "/assets/brand/icon-192.png",
+      sizes: "192x192",
+      type: "image/png",
+      purpose: "any",
+    },
+    {
+      src: "/assets/brand/icon-512.png",
+      sizes: "512x512",
+      type: "image/png",
+      purpose: "any",
+    },
+    {
+      src: "/assets/brand/icon-maskable-512.png",
+      sizes: "512x512",
+      type: "image/png",
+      purpose: "maskable",
+    },
+  ],
+};
 
 const renderGitHubIcon = () => `
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -160,16 +348,49 @@ const template = fs.readFileSync(
 );
 
 const output = template
-  .replaceAll("{{PROJECT_COUNT}}", String(projects.length))
+  .replaceAll("{{SITE_TITLE}}", escapeHtml(site.title))
+  .replaceAll("{{SITE_DESCRIPTION}}", escapeHtml(site.description))
+  .replaceAll("{{SITE_URL}}", escapeHtml(site.url))
+  .replaceAll("{{SOCIAL_IMAGE_URL}}", escapeHtml(socialImageUrl))
+  .replaceAll("{{STRUCTURED_DATA}}", stringifyJsonForHtml(structuredData))
   .replaceAll("{{CATEGORY_NAVIGATION}}", categoryNavigation)
   .replaceAll("{{PROJECT_SECTIONS}}", projectSections);
+
+const requiredBrandAssets = [
+  "favicon.svg",
+  "favicon.ico",
+  "apple-touch-icon.png",
+  "icon-192.png",
+  "icon-512.png",
+  "icon-maskable-512.png",
+  "social-card.png",
+];
+
+for (const asset of requiredBrandAssets) {
+  const assetPath = path.join(sourceAssetsDirectory, "brand", asset);
+  if (!fs.existsSync(assetPath)) {
+    throw new Error(`Required brand asset not found: ${assetPath}`);
+  }
+}
 
 fs.rmSync(outputDirectory, { recursive: true, force: true });
 fs.mkdirSync(outputDirectory, { recursive: true });
 fs.writeFileSync(path.join(outputDirectory, "index.html"), output);
+fs.copyFileSync(
+  path.join(sourceDirectory, "404.html"),
+  path.join(outputDirectory, "404.html"),
+);
 fs.copyFileSync(path.join(root, ".nojekyll"), path.join(outputDirectory, ".nojekyll"));
 fs.cpSync(sourceAssetsDirectory, path.join(outputDirectory, "assets"), {
   recursive: true,
 });
+fs.writeFileSync(
+  path.join(outputDirectory, "site.webmanifest"),
+  `${JSON.stringify(manifest, null, 2)}\n`,
+);
+fs.writeFileSync(path.join(outputDirectory, "robots.txt"), robotsText);
+fs.writeFileSync(path.join(outputDirectory, "sitemap.xml"), sitemapXml);
+fs.writeFileSync(path.join(outputDirectory, "llms.txt"), llmsText);
+fs.writeFileSync(path.join(outputDirectory, "llms-full.txt"), llmsFullText);
 
 console.log(`Built ${projects.length} projects across ${groupedProjects.size} categories.`);

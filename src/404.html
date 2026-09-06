@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page not found | Maxim Salnikov</title>
+    <meta
+      name="description"
+      content="The requested page could not be found on Maxim Salnikov's project portfolio."
+    />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#efebe4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#363332" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/assets/brand/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <style>
+      :root {
+        color-scheme: light;
+        --background: #efebe4;
+        --surface: #ffffff;
+        --border: #dedede;
+        --text: #242424;
+        --muted: #5c5c5c;
+        --accent: #b11f4b;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          color-scheme: dark;
+          --background: #363332;
+          --surface: #292929;
+          --border: #474747;
+          --text: #dedede;
+          --muted: #b0b0b0;
+          --accent: #fd8ea1;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: grid;
+        min-width: 320px;
+        min-height: 100vh;
+        margin: 0;
+        place-items: center;
+        background: var(--background);
+        color: var(--text);
+        font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
+      main {
+        width: min(100% - 48px, 760px);
+        padding: 56px;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        background: var(--surface);
+      }
+
+      .code {
+        margin-bottom: 24px;
+        color: var(--accent);
+        font-family: Consolas, "Courier New", Courier, monospace;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      h1 {
+        margin: 0 0 20px;
+        font-size: clamp(3.5rem, 12vw, 7rem);
+        letter-spacing: -0.075em;
+        line-height: 0.9;
+      }
+
+      p {
+        max-width: 560px;
+        margin: 0 0 32px;
+        color: var(--muted);
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+
+      a {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        padding: 0 18px;
+        border-radius: 10px;
+        background: var(--accent);
+        color: #ffffff;
+        font-weight: 650;
+        text-decoration: none;
+      }
+
+      a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 4px;
+      }
+
+      @media (max-width: 560px) {
+        main {
+          padding: 36px 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="code">404 / PAGE NOT FOUND</div>
+      <h1>Nothing here.</h1>
+      <p>The page may have moved or never existed. Return to the project index to keep exploring.</p>
+      <a href="/">Back to projects</a>
+    </main>
+  </body>
+</html>
