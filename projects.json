@@ -1,19 +1,19 @@
 [
   {
+    "category": "Developer tools",
+    "repo": "webmaxru/is-ai-native",
+    "name": "Is AI Native",
+    "description": "Audit public GitHub repositories for AI coding readiness across Copilot, Claude Code, and Codex.",
+    "thumbnail": "assets/thumbnails/is-ai-native.png",
+    "live": "https://isainative.dev"
+  },
+  {
     "category": "Applications",
     "repo": "webmaxru/qravn",
     "name": "QRavn",
     "description": "Read a QR link before your camera app opens it, with offline-first checks in Norwegian and English.",
     "thumbnail": "assets/thumbnails/qravn.png",
     "live": "https://qravn.isainative.dev"
-  },
-  {
-    "category": "Applications",
-    "repo": "webmaxru/is-ai-native",
-    "name": "Is AI Native",
-    "description": "Audit public GitHub repositories for AI coding readiness across Copilot, Claude Code, and Codex.",
-    "thumbnail": "assets/thumbnails/is-ai-native.png",
-    "live": "https://isainative.dev"
   },
   {
     "category": "Applications",
