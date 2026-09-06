@@ -28,10 +28,9 @@
     "category": "Applications",
     "repo": "webmaxru/stemina",
     "name": "Stemina",
-    "description": "A small application experiment from Maxim's project archive.",
-    "thumbnail": "generated",
-    "live": null,
-    "liveLabel": "Open repository"
+    "description": "Split a track into six stems in your browser on your GPU, with no upload.",
+    "thumbnail": "https://stemina.bpmtech.no/og-cover.png",
+    "live": "https://stemina.bpmtech.no/"
   },
   {
     "category": "Applications",
