@@ -70,6 +70,14 @@
         --cp-highlight: rgba(253, 142, 161, 0.12);
       }
 
+      :root {
+        --cp-bg-contrast: #efebe4;
+      }
+
+      html[data-theme="dark"] {
+        --cp-bg-contrast: #363332;
+      }
+
       *,
       *::before,
       *::after {
@@ -84,6 +92,7 @@
         min-width: 320px;
         margin: 0;
         background: var(--cp-bg);
+        background-color: var(--cp-bg-contrast);
         color: var(--cp-text);
         font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
         line-height: 1.5;
@@ -111,7 +120,7 @@
       }
 
       .site-header {
-        padding: 24px 0 72px;
+        padding: 20px 0 28px;
         border-bottom: 1px solid var(--cp-border);
       }
 
@@ -136,20 +145,8 @@
       }
 
       .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1.45fr) minmax(240px, 0.55fr);
-        align-items: end;
-        gap: 72px;
-        padding-top: 88px;
-      }
-
-      .eyebrow {
-        margin: 0 0 20px;
-        color: var(--cp-accent);
-        font-family: Consolas, "Courier New", Courier, monospace;
-        font-size: 0.78rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
+        display: block;
+        padding-top: 48px;
       }
 
       h1,
@@ -161,8 +158,8 @@
 
       h1 {
         max-width: 900px;
-        margin-bottom: 28px;
-        font-size: clamp(4rem, 11vw, 9.5rem);
+        margin-bottom: 18px;
+        font-size: clamp(3.8rem, 8vw, 7.2rem);
         font-weight: 650;
         letter-spacing: -0.085em;
         line-height: 0.86;
@@ -173,40 +170,19 @@
       }
 
       .hero-lede {
-        max-width: 560px;
+        max-width: 640px;
         margin-bottom: 0;
         color: var(--cp-text-muted);
-        font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+        font-size: clamp(1.15rem, 2vw, 1.5rem);
         letter-spacing: -0.025em;
         line-height: 1.25;
-      }
-
-      .hero-aside {
-        padding-top: 16px;
-        border-top: 1px solid var(--cp-border-strong);
-        color: var(--cp-text-muted);
-        font-size: 0.95rem;
-      }
-
-      .hero-aside strong {
-        display: block;
-        margin-bottom: 12px;
-        color: var(--cp-text);
-        font-family: Consolas, "Courier New", Courier, monospace;
-        font-size: 1.15rem;
-        font-weight: 500;
-      }
-
-      .hero-aside p {
-        max-width: 280px;
-        margin-bottom: 0;
       }
 
       .category-index {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 1px;
-        margin-top: 48px;
+        margin-top: 30px;
         border-top: 1px solid var(--cp-border);
         border-bottom: 1px solid var(--cp-border);
       }
@@ -216,8 +192,8 @@
         grid-template-columns: auto 1fr auto;
         align-items: center;
         gap: 12px;
-        min-height: 62px;
-        padding: 12px 16px;
+        min-height: 54px;
+        padding: 10px 14px;
         border-right: 1px solid var(--cp-border);
         color: var(--cp-text-muted);
         font-size: 0.84rem;
@@ -256,7 +232,7 @@
 
       .project-section {
         scroll-margin-top: 28px;
-        padding-top: 104px;
+        padding-top: 54px;
       }
 
       .section-heading {
@@ -264,7 +240,7 @@
         grid-template-columns: auto auto minmax(40px, 1fr) auto;
         align-items: center;
         gap: 16px;
-        margin-bottom: 28px;
+        margin-bottom: 22px;
       }
 
       .section-heading h2 {
@@ -520,15 +496,6 @@
       }
 
       @media (max-width: 980px) {
-        .hero {
-          grid-template-columns: 1fr;
-          gap: 44px;
-        }
-
-        .hero-aside p {
-          max-width: 560px;
-        }
-
         .project-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -544,12 +511,14 @@
         }
 
         .utility-note {
-          display: none;
+          max-width: 145px;
+          font-size: 0.66rem;
+          line-height: 1.2;
+          text-align: right;
         }
 
         .hero {
-          gap: 36px;
-          padding-top: 68px;
+          padding-top: 44px;
         }
 
         h1 {
@@ -615,19 +584,16 @@
     <div class="site-shell">
       <header class="site-header">
         <div class="utility-bar">
-          <a class="wordmark" href="/">MAXIM / WEBMAX</a>
-          <span class="utility-note">A small index of things made</span>
+          <a class="wordmark" href="/">MAXIM SALNIKOV</a>
+          <a class="utility-note" href="https://github.com/webmaxru" target="_blank" rel="noopener noreferrer">
+            A small index of things made
+          </a>
         </div>
 
         <div class="hero">
           <div>
-            <p class="eyebrow">Portfolio / Selected work</p>
             <h1>Maxim builds<span class="hero-title-mark">.</span></h1>
-            <p class="hero-lede">My personal projects and experiments.</p>
-          </div>
-          <div class="hero-aside">
-            <strong>{{PROJECT_COUNT}} projects</strong>
-            <p>Apps, tools, experiments, and weekend-sized ideas made to be useful, curious, or both.</p>
+            <p class="hero-lede">Some of my projects and experiments</p>
           </div>
         </div>
 
