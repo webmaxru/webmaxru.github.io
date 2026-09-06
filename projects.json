@@ -4,6 +4,7 @@
     "repo": "webmaxru/qravn",
     "name": "QRavn",
     "description": "Read a QR link before your camera app opens it, with offline-first checks in Norwegian and English.",
+    "thumbnail": "generated",
     "live": "https://qravn.isainative.dev"
   },
   {
@@ -11,6 +12,7 @@
     "repo": "webmaxru/is-ai-native",
     "name": "Is AI Native",
     "description": "Audit public GitHub repositories for AI coding readiness across Copilot, Claude Code, and Codex.",
+    "thumbnail": "https://raw.githubusercontent.com/webmaxru/is-ai-native/main/webapp/frontend/assets/brand/social-card.svg",
     "live": "https://isainative.dev"
   },
   {
@@ -18,6 +20,7 @@
     "repo": "webmaxru/barnebursdag-planlegger",
     "name": "Kakeklar",
     "description": "Plan a Norwegian children's birthday party with two sliders, an instant shopping list, and a printable checklist.",
+    "thumbnail": "generated",
     "live": null,
     "liveLabel": "Open repository"
   },
@@ -35,6 +38,7 @@
     "repo": "webmaxru/bpm-counter",
     "name": "BPM Counter",
     "description": "A free, real-time BPM counter for DJs, producers, and techno sessions.",
+    "thumbnail": "https://raw.githubusercontent.com/webmaxru/bpm-counter/main/public/images/social.png",
     "live": "https://bpmtech.no"
   },
   {
@@ -42,6 +46,7 @@
     "repo": "webmaxru/nordlys-i-natt",
     "name": "Nordlys i natt?",
     "description": "Find out whether the northern lights are worth chasing tonight in Norway.",
+    "thumbnail": "generated",
     "live": "https://nordlys.isainative.dev"
   },
   {
@@ -49,6 +54,7 @@
     "repo": "webmaxru/ai-native-dev",
     "name": "AI-native dev",
     "description": "A plugin marketplace for AI-native development agent skills.",
+    "thumbnail": "generated",
     "live": "https://webmaxru.github.io/ai-native-dev/"
   },
   {
@@ -56,6 +62,7 @@
     "repo": "webmaxru/web-ai-agent-skills",
     "name": "Web AI Agent Skills",
     "description": "Maintained agent skills for Prompt API, WebMCP, WebNN, and other browser Web AI APIs.",
+    "thumbnail": "https://raw.githubusercontent.com/webmaxru/web-ai-agent-skills/main/assets/repo-banner.svg",
     "live": null,
     "liveLabel": "Open repository"
   },
@@ -64,6 +71,7 @@
     "repo": "webmaxru/enonic-agent-skills",
     "name": "Enonic XP Agent Skills",
     "description": "Agent skills for Enonic XP development, content migration, GraphQL, Next.XP, and sandbox tooling.",
+    "thumbnail": "https://raw.githubusercontent.com/webmaxru/enonic-agent-skills/main/assets/repo-banner.svg",
     "live": null,
     "liveLabel": "Open repository"
   },
@@ -72,6 +80,7 @@
     "repo": "webmaxru/awesome-microsoft-agent-framework",
     "name": "Awesome Microsoft Agent Framework",
     "description": "A curated list of Microsoft Agent Framework resources.",
+    "thumbnail": "https://raw.githubusercontent.com/microsoft/agent-framework/main/docs/assets/readme-banner.png",
     "live": "https://aka.ms/AgentFramework"
   },
   {
@@ -79,6 +88,7 @@
     "repo": "webmaxru/finops-copilot",
     "name": "FinOps Copilot",
     "description": "Simulate monthly GitHub Copilot spend for enterprise seats and cost centers.",
+    "thumbnail": "https://repository-images.githubusercontent.com/1288307131/a55ced17-61f2-4fe6-aac0-b28433e682bd",
     "live": "https://finops.isainative.dev/"
   },
   {
@@ -86,6 +96,7 @@
     "repo": "webmaxru/webiq-demo",
     "name": "Web IQ Demo",
     "description": "An interactive developer sandbox for Microsoft Web IQ grounding APIs.",
+    "thumbnail": "generated",
     "live": "https://webiq.isainative.dev/"
   },
   {
@@ -93,6 +104,7 @@
     "repo": "webmaxru/maskinporten",
     "name": "Maskinporten Tools",
     "description": "A TypeScript client, credential-free mock, and scope wizard for Norway's Maskinporten.",
+    "thumbnail": "https://repository-images.githubusercontent.com/1290947063/1fcab063-ca22-4a6e-910a-bbc2b011f964",
     "live": "https://maskinporten.isainative.dev/"
   },
   {
@@ -100,6 +112,7 @@
     "repo": "webmaxru/ai-engineering-system",
     "name": "AI Engineering System",
     "description": "A reference architecture for governed AI engineering systems.",
+    "thumbnail": "generated",
     "live": "https://webmaxru.github.io/ai-engineering-system/"
   },
   {
@@ -107,6 +120,7 @@
     "repo": "webmaxru/webmcp-webai",
     "name": "WebMCP + Web AI",
     "description": "A fully local agentic experience built with WebMCP and the Prompt API.",
+    "thumbnail": "generated",
     "live": "https://webmaxru.github.io/webmcp-webai/"
   },
   {
@@ -114,6 +128,7 @@
     "repo": "webmaxru/sandcastle",
     "name": "Sandcastle",
     "description": "Watch a team of Copilot agents plan, build, fix, and self-heal an app in a live sandbox.",
+    "thumbnail": "https://raw.githubusercontent.com/webmaxru/sandcastle/main/docs/media/demo-live-build.png",
     "live": "https://sandcastle.isainative.dev"
   },
   {
@@ -121,6 +136,7 @@
     "repo": "webmaxru/copilot-opentelemetry",
     "name": "Copilot OpenTelemetry",
     "description": "Visualize GitHub Copilot prompt-cache behavior from OpenTelemetry traces.",
+    "thumbnail": "https://repository-images.githubusercontent.com/1288728844/e356f6b5-84ef-4c11-9e18-63ace70b0c00",
     "live": "https://copilot-opentelemetry.isainative.dev/"
   },
   {
@@ -128,6 +144,7 @@
     "repo": "webmaxru/ard-catalog-explorer",
     "name": "ARD Catalog Explorer",
     "description": "Explore and strictly validate Agentic Resource Discovery catalogs in the browser.",
+    "thumbnail": "generated",
     "live": "https://delightful-tree-0725d2503.7.azurestaticapps.net"
   },
   {
@@ -135,6 +152,7 @@
     "repo": "webmaxru/epic-copilot",
     "name": "Epic Copilot",
     "description": "An AI-powered assistant for project managers, product owners, and delivery managers.",
+    "thumbnail": "https://raw.githubusercontent.com/webmaxru/epic-copilot/main/public/assets/screenshot-1.png",
     "live": null,
     "liveLabel": "Open repository"
   },
@@ -143,6 +161,7 @@
     "repo": "webmaxru/webmcp-grid-resilience",
     "name": "WebMCP Grid Resilience",
     "description": "A WebMCP challenge demo for safe, human-approved microgrid restoration planning.",
+    "thumbnail": "generated",
     "live": "https://webmaxru.github.io/webmcp-grid-resilience/"
   },
   {
@@ -150,6 +169,7 @@
     "repo": "webmaxru/webmcp-data-rights-workbench",
     "name": "WebMCP Data Rights Workbench",
     "description": "A WebMCP challenge demo for retention-aware erasure, consent, and portability planning.",
+    "thumbnail": "generated",
     "live": "https://webmaxru.github.io/webmcp-data-rights-workbench/"
   },
   {
@@ -157,6 +177,7 @@
     "repo": "webmaxru/webmcp-provenance-workbench",
     "name": "WebMCP Provenance Workbench",
     "description": "A WebMCP challenge demo for evidence-bound provenance research with human approval.",
+    "thumbnail": "https://raw.githubusercontent.com/webmaxru/webmcp-provenance-workbench/main/submission-assets/screenshots/01-overview.png",
     "live": "https://webmaxru.github.io/webmcp-provenance-workbench/"
   },
   {
@@ -164,6 +185,7 @@
     "repo": "webmaxru/webmcp-recall-response-workbench",
     "name": "WebMCP Recall Response Workbench",
     "description": "A WebMCP challenge demo for exact batch-recall tracing and staged customer response.",
+    "thumbnail": "generated",
     "live": "https://webmaxru.github.io/webmcp-recall-response-workbench/"
   },
   {
@@ -171,6 +193,7 @@
     "repo": "webmaxru/webmcp-access-review-workbench",
     "name": "WebMCP Access Review Workbench",
     "description": "A WebMCP challenge demo for explainable least-privilege SaaS access reviews.",
+    "thumbnail": "https://raw.githubusercontent.com/webmaxru/webmcp-access-review-workbench/main/public/access-review-card.svg",
     "live": "https://webmaxru.github.io/webmcp-access-review-workbench/"
   },
   {
@@ -178,6 +201,7 @@
     "repo": "webmaxru/webmcp-plate-studio",
     "name": "WebMCP Plate Studio",
     "description": "A WebMCP challenge demo for human-guided 96-well assay layout optimization.",
+    "thumbnail": "generated",
     "live": "https://webmaxru.github.io/webmcp-plate-studio/"
   }
 ]

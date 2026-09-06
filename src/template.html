@@ -338,14 +338,28 @@
 
       .thumb-fallback {
         display: none;
-        place-items: center;
+        align-content: space-between;
+        justify-items: start;
         width: 100%;
         height: 100%;
+        padding: 22px;
         background: var(--cp-accent-soft);
         color: var(--cp-accent);
+      }
+
+      .thumb-mark {
         font-family: Consolas, "Courier New", Courier, monospace;
         font-size: clamp(2.8rem, 6vw, 5rem);
         letter-spacing: -0.08em;
+        line-height: 0.9;
+      }
+
+      .thumb-fallback-name {
+        max-width: 75%;
+        color: var(--cp-text);
+        font-size: 0.9rem;
+        font-weight: 650;
+        letter-spacing: -0.02em;
       }
 
       .project-thumb.has-fallback .thumb-fallback {

@@ -61,11 +61,8 @@ const renderGitHubIcon = () => `
 
 const renderProjectCard = (project) => {
   const repositoryUrl = `https://github.com/${project.repo}`;
-  const useGeneratedThumbnail = project.thumbnail === "generated";
-  const socialGraphImage =
-    project.thumbnail && project.thumbnail !== "generated"
-      ? project.thumbnail
-      : `https://opengraph.githubassets.com/1/${project.repo}`;
+  const thumbnailUrl = project.thumbnail ?? "generated";
+  const useGeneratedThumbnail = thumbnailUrl === "generated";
   const liveUrl = project.live ?? repositoryUrl;
   const liveLabel = project.liveLabel ?? "Open live project";
   const readmeImage = project.readmeImage
@@ -79,7 +76,7 @@ const renderProjectCard = (project) => {
     ? ""
     : `
         <img
-          src="${escapeHtml(socialGraphImage)}"
+          src="${escapeHtml(thumbnailUrl)}"
           alt="${escapeHtml(project.name)} thumbnail"
           loading="lazy"
           decoding="async"${readmeImage}
@@ -89,7 +86,10 @@ const renderProjectCard = (project) => {
   return `
     <article class="project-card">
       <div class="${thumbClass}">
-        <div class="thumb-fallback" aria-hidden="true">${escapeHtml(fallbackLabel)}</div>
+        <div class="thumb-fallback" aria-hidden="true">
+          <span class="thumb-mark">${escapeHtml(fallbackLabel)}</span>
+          <span class="thumb-fallback-name">${escapeHtml(project.name)}</span>
+        </div>
         ${imageMarkup}
         <span class="thumb-label">${escapeHtml(project.category)}</span>
       </div>
