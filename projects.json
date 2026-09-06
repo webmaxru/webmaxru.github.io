@@ -4,7 +4,7 @@
     "repo": "webmaxru/qravn",
     "name": "QRavn",
     "description": "Read a QR link before your camera app opens it, with offline-first checks in Norwegian and English.",
-    "thumbnail": "https://opengraph.githubassets.com/9d0d7b0b8011aac9f61ad87943fa7595269d3d36b14f07862abe0d29b06af94d/webmaxru/qravn",
+    "thumbnail": "https://qravn.isainative.dev/og.png",
     "live": "https://qravn.isainative.dev"
   },
   {
@@ -12,7 +12,7 @@
     "repo": "webmaxru/is-ai-native",
     "name": "Is AI Native",
     "description": "Audit public GitHub repositories for AI coding readiness across Copilot, Claude Code, and Codex.",
-    "thumbnail": "https://raw.githubusercontent.com/webmaxru/is-ai-native/main/webapp/frontend/assets/brand/social-card.svg",
+    "thumbnail": "https://isainative.dev/social-card.png",
     "live": "https://isainative.dev"
   },
   {
@@ -20,9 +20,8 @@
     "repo": "webmaxru/barnebursdag-planlegger",
     "name": "Kakeklar",
     "description": "Plan a Norwegian children's birthday party with two sliders, an instant shopping list, and a printable checklist.",
-    "thumbnail": "https://opengraph.githubassets.com/d62a91659ead9de942a864bbcb0d071cf18ab4c3507c59bab6f346b4ef9be2cc/webmaxru/barnebursdag-planlegger",
-    "live": null,
-    "liveLabel": "Open repository"
+    "thumbnail": "https://kakeklar.no/og-image.png",
+    "live": "https://kakeklar.no/"
   },
   {
     "category": "Applications",
@@ -37,7 +36,7 @@
     "repo": "webmaxru/bpm-counter",
     "name": "BPM Counter",
     "description": "A free, real-time BPM counter for DJs, producers, and techno sessions.",
-    "thumbnail": "https://raw.githubusercontent.com/webmaxru/bpm-counter/main/public/images/social.png",
+    "thumbnail": "https://bpmtech.no/images/social.png",
     "live": "https://bpmtech.no"
   },
   {
@@ -45,7 +44,7 @@
     "repo": "webmaxru/nordlys-i-natt",
     "name": "Nordlys i natt?",
     "description": "Find out whether the northern lights are worth chasing tonight in Norway.",
-    "thumbnail": "https://opengraph.githubassets.com/126cbe0737921472390ac036c2b94f565b95da693ae005cc6bbdc790641f341b/webmaxru/nordlys-i-natt",
+    "thumbnail": "https://nordlys.isainative.dev/og-image.png",
     "live": "https://nordlys.isainative.dev"
   },
   {
@@ -53,7 +52,7 @@
     "repo": "webmaxru/ai-native-dev",
     "name": "AI-native dev",
     "description": "A plugin marketplace for AI-native development agent skills.",
-    "thumbnail": "https://opengraph.githubassets.com/6eda2853a897a2a9726631f05c6f15af7cbcf6cb99012162af66429c53aea709/webmaxru/ai-native-dev",
+    "thumbnail": "https://raw.githubusercontent.com/webmaxru/ai-native-dev/main/assets/repo-banner.svg",
     "live": "https://webmaxru.github.io/ai-native-dev/"
   },
   {
@@ -87,7 +86,7 @@
     "repo": "webmaxru/finops-copilot",
     "name": "FinOps Copilot",
     "description": "Simulate monthly GitHub Copilot spend for enterprise seats and cost centers.",
-    "thumbnail": "https://repository-images.githubusercontent.com/1288307131/a55ced17-61f2-4fe6-aac0-b28433e682bd",
+    "thumbnail": "https://finops.isainative.dev/og-image.png",
     "live": "https://finops.isainative.dev/"
   },
   {
@@ -95,7 +94,7 @@
     "repo": "webmaxru/webiq-demo",
     "name": "Web IQ Demo",
     "description": "An interactive developer sandbox for Microsoft Web IQ grounding APIs.",
-    "thumbnail": "generated",
+    "thumbnail": "https://webiq.isainative.dev/og-image.png",
     "live": "https://webiq.isainative.dev/"
   },
   {
@@ -103,7 +102,7 @@
     "repo": "webmaxru/maskinporten",
     "name": "Maskinporten Tools",
     "description": "A TypeScript client, credential-free mock, and scope wizard for Norway's Maskinporten.",
-    "thumbnail": "https://repository-images.githubusercontent.com/1290947063/1fcab063-ca22-4a6e-910a-bbc2b011f964",
+    "thumbnail": "https://maskinporten.isainative.dev/og-image.png",
     "live": "https://maskinporten.isainative.dev/"
   },
   {
@@ -127,7 +126,7 @@
     "repo": "webmaxru/sandcastle",
     "name": "Sandcastle",
     "description": "Watch a team of Copilot agents plan, build, fix, and self-heal an app in a live sandbox.",
-    "thumbnail": "https://raw.githubusercontent.com/webmaxru/sandcastle/main/docs/media/demo-live-build.png",
+    "thumbnail": "https://sandcastle.isainative.dev/og-image.png",
     "live": "https://sandcastle.isainative.dev"
   },
   {
@@ -135,7 +134,7 @@
     "repo": "webmaxru/copilot-opentelemetry",
     "name": "Copilot OpenTelemetry",
     "description": "Visualize GitHub Copilot prompt-cache behavior from OpenTelemetry traces.",
-    "thumbnail": "https://repository-images.githubusercontent.com/1288728844/e356f6b5-84ef-4c11-9e18-63ace70b0c00",
+    "thumbnail": "https://copilot-opentelemetry.isainative.dev/images/article-cover.png",
     "live": "https://copilot-opentelemetry.isainative.dev/"
   },
   {
@@ -143,7 +142,7 @@
     "repo": "webmaxru/ard-catalog-explorer",
     "name": "ARD Catalog Explorer",
     "description": "Explore and strictly validate Agentic Resource Discovery catalogs in the browser.",
-    "thumbnail": "generated",
+    "thumbnail": "https://ard-explorer.isainative.dev/assets/og-image.png",
     "live": "https://delightful-tree-0725d2503.7.azurestaticapps.net"
   },
   {

@@ -10,7 +10,7 @@ The project catalog lives in [`projects.json`](projects.json). Edit the JSON, th
 npm run build
 ```
 
-The generated site is written to `dist/`. Project metadata is rendered at build time; thumbnails are loaded from their GitHub social previews when the page is viewed.
+The generated site is written to `dist/`. Project metadata is rendered at build time; verified application social-preview assets and README visuals are loaded when the page is viewed.
 
 Each project can set `thumbnail` to a verified social-preview or README image URL. Use `"generated"` when a repository has no useful image, which produces a neutral project-specific visual instead of a generic GitHub card.
 
