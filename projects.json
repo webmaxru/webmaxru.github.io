@@ -1,5 +1,13 @@
 [
   {
+    "category": "Applications",
+    "repo": "webmaxru/Launchpane",
+    "name": "Launchpane",
+    "description": "Inspect and manage macOS launch agents, daemons, and login items in one native workspace.",
+    "thumbnail": "generated",
+    "live": "https://salnikov.no/projects/launchpane/"
+  },
+  {
     "category": "Developer tools",
     "repo": "webmaxru/is-ai-native",
     "name": "Is AI Native",
