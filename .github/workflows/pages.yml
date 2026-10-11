@@ -25,8 +25,23 @@ jobs:
         with:
           node-version: 20
 
+      - name: Check out Launchpane
+        uses: actions/checkout@v4
+        with:
+          repository: webmaxru/Launchpane
+          path: launchpane
+
       - name: Build and validate static site
         run: npm run check
+
+      - name: Build Launchpane project site
+        working-directory: launchpane
+        run: node scripts/build-site.mjs
+
+      - name: Publish Launchpane project route
+        run: |
+          mkdir -p dist/projects
+          cp -R launchpane/dist/site dist/projects/launchpane
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
