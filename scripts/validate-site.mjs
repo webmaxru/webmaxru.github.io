@@ -49,6 +49,7 @@ const manifest = JSON.parse(readOutput("site.webmanifest"));
 
 for (const requiredFile of [
   ".nojekyll",
+  "ads.txt",
   "404.html",
   "robots.txt",
   "sitemap.xml",
@@ -220,6 +221,23 @@ for (const crawler of [
   assert(
     robots.includes(`User-agent: ${crawler}`),
     `robots.txt is missing ${crawler}.`,
+  );
+}
+
+// ads.txt: every non-comment line must be an IAB record
+// "<ad system domain>, <publisher id>, DIRECT|RESELLER[, <cert authority id>]".
+for (const line of readOutput("ads.txt").split(/\r?\n/)) {
+  const record = line.replace(/#.*$/, "").trim();
+  if (!record) continue;
+  assert(
+    /^[a-z0-9.-]+\.[a-z]{2,}\s*,\s*[^,\s]+\s*,\s*(DIRECT|RESELLER)(\s*,\s*[^,\s]+)?$/i.test(
+      record,
+    ),
+    `ads.txt has an invalid record: ${record}`,
+  );
+  assert(
+    !record.includes("XXXXXXXX"),
+    "ads.txt still has the placeholder publisher ID in an active record.",
   );
 }
 

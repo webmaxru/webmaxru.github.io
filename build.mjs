@@ -400,6 +400,8 @@ fs.copyFileSync(
   path.join(outputDirectory, "404.html"),
 );
 fs.copyFileSync(path.join(root, ".nojekyll"), path.join(outputDirectory, ".nojekyll"));
+// ads.txt must sit at the domain root (https://salnikov.no/ads.txt) for Google AdSense.
+fs.copyFileSync(path.join(root, "ads.txt"), path.join(outputDirectory, "ads.txt"));
 fs.cpSync(sourceAssetsDirectory, path.join(outputDirectory, "assets"), {
   recursive: true,
 });
