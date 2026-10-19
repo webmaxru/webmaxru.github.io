@@ -1,9 +1,4 @@
 # ads.txt for salnikov.no (https://salnikov.no/ads.txt)
-# Google reads ads.txt from the root of the domain; this file also covers subdomains
+# Google reads ads.txt from the root of the domain; this also covers subdomains
 # such as nordlys.salnikov.no.
-#
-# PLACEHOLDER: no AdSense publisher ID yet. After AdSense shows your publisher ID
-# (Account > Settings > Account information), replace pub-XXXXXXXXXXXXXXXX below with it
-# and remove the leading "# " so the line becomes an active record.
-#
-google.com, pub-6118980043742623, DIRECT, f08c47fec0942fa0 - replace with your publisher ID after AdSense approval
+google.com, pub-6118980043742623, DIRECT, f08c47fec0942fa0
