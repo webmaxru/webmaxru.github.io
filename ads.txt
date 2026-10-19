@@ -6,4 +6,4 @@
 # (Account > Settings > Account information), replace pub-XXXXXXXXXXXXXXXX below with it
 # and remove the leading "# " so the line becomes an active record.
 #
-# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0 - replace with your publisher ID after AdSense approval
+google.com, pub-6118980043742623, DIRECT, f08c47fec0942fa0 - replace with your publisher ID after AdSense approval
